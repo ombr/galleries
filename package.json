@@ -1,0 +1,17 @@
+{
+  "name": "galleries",
+  "version": "1.0.0",
+  "description": "Galeries in few seconds.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luc Boissaye",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.3.12"
+  }
+}
