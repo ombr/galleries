@@ -24,5 +24,6 @@ module Galleries
     config.active_record.raise_in_transactional_callbacks = true
     # bower
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+    config.assets.js_compressor = Uglifier.new(mangle: false)
   end
 end
