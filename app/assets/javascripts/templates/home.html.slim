@@ -1,0 +1,21 @@
+div
+  input type="file" data-file-drop="onDrop" multiple=true
+style
+  | .image { width: {{100/columns}}%; }
+.zoom-controls
+  button.btn ng-click="zoom(columns-1)" ng-disabled="columns == 1"
+    .fa.fa-plus
+  button.btn ng-click="zoom(columns+1)" ng-disabled="columns > 10"
+    .fa.fa-minus
+.import-controls
+  p ng-if="queue > 0" = "{{ queue }} processing..."
+.pagination-controls
+  div dir-pagination-controls="" template-url="pagination.html" max-size="5"
+#images
+  -# li sf-virtual-repeat="image in images"
+  .image dir-paginate="image in images | itemsPerPage: round(100/columns)*columns"
+    .wrapper
+      .viewer
+        .viewer-image
+          img ng-src="{{::image.image_small}}"
+      p ="{{::image.filename }}"

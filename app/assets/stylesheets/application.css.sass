@@ -1,0 +1,80 @@
+$border-radius-base: 0
+$border-radius-large: 0
+$border-radius-small: 0
+@import 'bootstrap-sprockets'
+@import 'bootstrap'
+@import 'font-awesome'
+body
+  background: #2E2E2E
+$background1: #929292
+.pagination-controls
+  position: fixed
+  z-index: 1000
+  left: 5px
+  bottom: 5px
+  ul
+    margin: 0
+.import-controls
+  position: fixed
+  background: white
+  top: 0
+  right: 0
+.zoom-controls
+  z-index: 1000
+  position: fixed
+  right: 10px
+  bottom: 5px
+  width: 37px
+  button
+    float: right
+.image
+  padding: 1px
+  display: inline-block
+  position: relative
+.image-row
+  width: 100%
+#images
+  margin: 0
+  padding: 0
+  font-size: 0
+  p
+    font-size: 14px
+    position: absolute
+    left: 0
+    right: 0
+    bottom: -19px
+    padding: 0 5px
+    margin: 0
+    text-align: center
+    @include text-overflow
+    background: $background1
+  .wrapper
+    background: $background1
+    position: relative
+    display: block
+    height: 0
+    padding: 0
+    padding-bottom: 100%
+    margin-bottom: 20px
+  .viewer
+    padding: 1px
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    width: 100%
+    height: 100%
+  .viewer-image
+    position: relative
+    width: 100%
+    height: 100%
+  img
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    margin: auto
+    max-height: 100%
+    max-width: 100%
