@@ -18,3 +18,5 @@
 
 node_modules
 vendor/assets/components
+
+app/assets/javascripts/angular-app.js
