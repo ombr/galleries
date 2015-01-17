@@ -7,8 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install",
-    "postinstall": "./node_modules/gulp/bin/gulp.js"
+    "postinstall": "./node_modules/bower/bin/bower install && ./node_modules/gulp/bin/gulp.js"
   },
   "engine": "node >= 0.10.33",
   "author": "Luc Boissaye",
