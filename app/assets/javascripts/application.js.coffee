@@ -12,6 +12,7 @@
 #= require angular-utils-pagination/dirPagination
 #= require angular-virtual-scroll/angular-virtual-scroll
 #= require angular-vs-repeat/src/angular-vs-repeat
+#= require photoswipe/dist/photoswipe
+#= require photoswipe/dist/photoswipe-ui-default
 #= require_tree ./templates
 #= require angular-app
-
