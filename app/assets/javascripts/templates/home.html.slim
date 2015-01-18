@@ -1,5 +1,8 @@
-div
-  input type="file" data-file-drop="onDrop" multiple=true
+.btn-upload
+  .wrapper
+    button.btn.btn-success
+      .fa.fa-upload
+    input type="file" class="upload" data-file-drop="onDrop" multiple=true
 style
   | .image { width: {{100/columns}}%; }
 .zoom-controls
@@ -15,9 +18,9 @@ style
   -# li sf-virtual-repeat="image in images"
   .image id="image-{{image.uid}}" dir-paginate="image in images | itemsPerPage: round(100/columns)*columns"
     .wrapper
-      .viewer
-        .viewer-image ng-click="show(images, $index)"
-          img ng-src="{{::image.image_small}}"
+      .viewer ng-if="image.processed" ng-click="show(images, $index)"
+        .viewer-image
+          img ng-src="{{::image.image_small}}" ng-srcset="{{::image.image_small}} {{::image.image_small_width}}w, {{::image.image_large}} {{::image.image_large_width}}w"
       p ="{{::image.filename }}"
 
 

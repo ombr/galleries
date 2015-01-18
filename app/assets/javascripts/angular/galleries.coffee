@@ -27,27 +27,14 @@ angular.module('galleries.home', ['angularUtils.directives.dirPagination', 'file
       callback()
     ,1)
     $scope.show = (images, index)->
-      items = [
-          {
-              src: 'http://lorempixel.com/600/400',
-              w: 600,
-              h: 400
-          },
-          {
-              src: 'http://lorempixel.com/1200/900',
-              w: 1200,
-              h: 900
-          }
-      ]
+      return unless images[index].processed
       options = {
+        history: false
         index: index
         getThumbBoundsFn: (index)->
           $image = $('#image-'+images[index].uid)
           $img = $('img', $image)
           offset = $img.offset()
-          # thumbnail = items[index].el.getElementsByTagName('img')[0]
-          # pageYScroll = window.pageYOffset || document.documentElement.scrollTop
-          # rect = thumbnail.getBoundingClientRect()
           return {x: offset.left, y: offset.top, w: $img.width()}
       }
       gallery = new PhotoSwipe(document.querySelectorAll('.pswp')[0], PhotoSwipeUI_Default, images, options)
