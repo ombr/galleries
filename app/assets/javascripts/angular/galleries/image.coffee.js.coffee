@@ -34,6 +34,9 @@ angular.module('galleries.image', ['ngStorage'])
           , (err, res)=>
             # this.upload(callback)
             @status = 'processed'
+            @w = @image_width_large
+            @h = @image_height_large
+            @src = @image_large
             callback()
             $rootScope.$evalAsync()
             # @save()
@@ -42,6 +45,9 @@ angular.module('galleries.image', ['ngStorage'])
             return callback('error', null) if img.type == 'error'
             return callback('error', null) unless img.toBlob
             this["image_#{version}"] = img.toDataURL()
+            console.log img
+            this["image_width_#{version}"] = img.width
+            this["image_height_#{version}"] = img.height
             img.toBlob (blob)=>
               this[version] = blob
               callback()

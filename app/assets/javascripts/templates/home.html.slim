@@ -13,10 +13,10 @@ style
   div dir-pagination-controls="" template-url="pagination.html" max-size="5"
 #images
   -# li sf-virtual-repeat="image in images"
-  .image dir-paginate="image in images | itemsPerPage: round(100/columns)*columns"
+  .image id="image-{{image.uid}}" dir-paginate="image in images | itemsPerPage: round(100/columns)*columns"
     .wrapper
       .viewer
-        .viewer-image ng-click="show(image)"
+        .viewer-image ng-click="show(images, $index)"
           img ng-src="{{::image.image_small}}"
       p ="{{::image.filename }}"
 
