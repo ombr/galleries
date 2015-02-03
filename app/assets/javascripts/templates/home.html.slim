@@ -1,15 +1,15 @@
-.btn-upload
-  .wrapper
-    button.btn.btn-success
-      .fa.fa-upload
-    input type="file" class="upload" data-file-drop="onDrop" multiple=true
 style
   | .image { width: {{100/columns}}%; }
-.zoom-controls
-  button.btn ng-click="zoom(columns-1)" ng-disabled="columns == 1"
-    .fa.fa-plus
-  button.btn ng-click="zoom(columns+1)" ng-disabled="columns > 10"
-    .fa.fa-minus
+.controls
+  .btn-upload tooltip="Upload" tooltip-placement="left"
+     .wrapper
+        button.btn.btn-success
+          .fa.fa-upload
+        input type="file" class="upload" data-file-drop="onDrop" multiple=true
+  button.btn ng-click="zoom(columns-1)" ng-disabled="columns == 1" tooltip="Zoom in" tooltip-placement="left"
+    span.fa.fa-plus
+  button.btn ng-click="zoom(columns+1)" ng-disabled="columns > 10" tooltip="Zoom out" tooltip-placement="left"
+    span.fa.fa-minus
 .import-controls
   p ng-if="queue > 0" = "{{ queue }} processing..."
 .pagination-controls
@@ -18,7 +18,7 @@ style
   -# li sf-virtual-repeat="image in images"
   .image id="image-{{image.uid}}" dir-paginate="image in images | itemsPerPage: round(100/columns)*columns"
     .wrapper
-      .viewer ng-if="image.processed" ng-click="show(images, $index)"
+      .viewer ng-if="image.processed" ng-click="show(images, image)"
         .viewer-image
           img ng-src="{{::image.image_small}}" ng-srcset="{{::image.image_small}} {{::image.image_small_width}}w, {{::image.image_large}} {{::image.image_large_width}}w"
       p ="{{::image.filename }}"

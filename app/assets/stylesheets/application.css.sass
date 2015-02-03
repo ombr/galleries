@@ -6,52 +6,45 @@ $border-radius-small: 0
 @import 'font-awesome'
 @import 'photoswipe/dist/photoswipe'
 @import 'photoswipe/dist/default-skin/default-skin'
-.btn-upload
+body
+  background: #2E2E2E
+$background1: #929292
+
+.import-controls
   z-index: 1000
-  position: absolute
-  left: 10px
-  bottom: 10px
-  overflow: hidden
+  position: fixed
+  top: 0
+  right: 0
+  background: white
+
+.controls
+  z-index: 1000
+  position: fixed
+  bottom: 5px
+  right: 5px
+  height: 100px
   width: 50px
-  height: 50px
-  .btn
-    width: 50px
-    height: 50px
+  button
+    width: 40px
+    display: list-item
+.btn-upload
+  overflow: hidden
   .wrapper
     position: relative
   .upload
     position: absolute
     top: 0
-    left: 0
-    right: 0
-    font-size: 40px
+    font-size: 25px
     opacity: 0
-body
-  background: #2E2E2E
-$background1: #929292
+
 .pagination-controls
   position: fixed
   z-index: 1000
   left: 5px
   bottom: 5px
-  ul
-    margin: 0
-.import-controls
-  z-index: 1000
-  position: fixed
-  background: white
-  top: 0
-  right: 0
-.zoom-controls
-  z-index: 1000
-  position: fixed
-  right: 10px
-  bottom: 5px
-  width: 50px
   button
-    height: 50px
-    width: 50px
-    float: right
+    width: 40px
+    margin: 0 auto
 .image
   padding: 1px
   display: inline-block
@@ -62,8 +55,9 @@ $background1: #929292
   margin: 0
   padding: 0
   font-size: 0
-  p
+  div
     font-size: 14px
+  p
     position: absolute
     left: 0
     right: 0

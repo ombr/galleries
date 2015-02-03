@@ -26,21 +26,23 @@ angular.module('galleries.home', ['angularUtils.directives.dirPagination', 'file
       $scope.$evalAsync()
       callback()
     ,1)
-    $scope.show = (images, index)->
-      return unless images[index].processed
+    $scope.show = (images, image)->
+      return unless image.processed
+      items = _.where(images, processed: true)
       options = {
         history: false
-        index: index
+        index: _.findIndex(items, image)
         getThumbBoundsFn: (index)->
           $image = $('#image-'+images[index].uid)
           $img = $('img', $image)
           offset = $img.offset()
           return {x: offset.left, y: offset.top, w: $img.width()}
       }
-      gallery = new PhotoSwipe(document.querySelectorAll('.pswp')[0], PhotoSwipeUI_Default, images, options)
+      gallery = new PhotoSwipe(document.querySelectorAll('.pswp')[0], PhotoSwipeUI_Default, items, options)
       gallery.init()
     $scope.onDrop = (file)->
       add_queue.push(file)
+
 angular.module('galleries', ['ui.router', 'galleries.home', 'templates', 'ui.bootstrap'])
   .config ($stateProvider, $urlRouterProvider)->
     $stateProvider
@@ -55,7 +57,3 @@ angular.module('galleries', ['ui.router', 'galleries.home', 'templates', 'ui.boo
       enabled: true,
       requireBase: false
     )
-   # .config (RestangularProvider)->
-   #   # RestangularProvider.setBaseUrl('http://127.0.0.1:5000')
-   #   RestangularProvider.setBaseUrl('http://poc-backend.herokuapp.com')
-   #   return RestangularProvider

@@ -1,4 +1,4 @@
-angular.module('galleries.image', ['ngStorage'])
+angular.module('galleries.image', ['ngStorage', 'ui.bootstrap.tooltip'])
   .service 'Image', ($localStorage, $timeout, $rootScope)->
     class Image
       constructor: (@uid, @file)->
@@ -71,7 +71,9 @@ angular.module('galleries.image', ['ngStorage'])
           disableImageHead: true,
         )
     process_queue = async.queue((image, callback)->
-      image.process(callback)
+      setTimeout((->
+        image.process(callback)
+      ), 100)
     ,1)
     Image.process_queue = process_queue
     Image

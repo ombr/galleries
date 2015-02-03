@@ -9,6 +9,7 @@
 #= require blueimp-load-image/js/load-image.all.min
 #= require blueimp-canvas-to-blob/js/canvas-to-blob
 #= require angular-bootstrap/ui-bootstrap
+#= require angular-bootstrap/ui-bootstrap-tpls
 #= require angular-utils-pagination/dirPagination
 #= require angular-virtual-scroll/angular-virtual-scroll
 #= require angular-vs-repeat/src/angular-vs-repeat
