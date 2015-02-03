@@ -25,5 +25,10 @@ module Galleries
     # bower
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
     config.assets.js_compressor = Uglifier.new(mangle: false)
+
+    config.assets.precompile += %w(
+      photoswipe/dist/default-skin/default-skin.png
+      photoswipe/dist/default-skin/default-skin.svg
+    )
   end
 end
